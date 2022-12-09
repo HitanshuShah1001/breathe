@@ -1,5 +1,4 @@
 import React,{useState} from 'react'
-import { Picker } from '@react-native-picker/picker'
 import { Labels } from '../../Utils/Durationvalues'
 import DropDownPicker from 'react-native-dropdown-picker'
 import { styles } from './styles'
@@ -8,7 +7,7 @@ interface Props {
   setMinutes?: Function
 }
 export default function Duration({ minutes, setMinutes }: Props) {
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
     const [value, setValue] = useState(Labels[0].value);
     const [items, setItems] = useState(
       Labels
@@ -17,6 +16,7 @@ export default function Duration({ minutes, setMinutes }: Props) {
     return (
       <DropDownPicker
         open={open}
+        onPress={() => setOpen(!open)}
         value={value}
         items={items}
         setOpen={setOpen}
