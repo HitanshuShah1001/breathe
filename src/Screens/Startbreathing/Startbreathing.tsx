@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 import {View} from 'react-native';
+import { useNavigation } from "@react-navigation/native";
 import Duration from "../../Components/Duration/Duration";
 import Exercisecaption from "../../Components/Exercisecaption/Exercisecaption";
 import Exercisetitle from "../../Components/Exercisetitle/Exercisetitle";
@@ -8,6 +9,7 @@ import { styles } from "./styles";
 
 
 export default function Startbreathing(){
+    const navigation = useNavigation();
     return (
         <View style={styles.parent}>
             <View style={styles.container}>
@@ -15,7 +17,7 @@ export default function Startbreathing(){
             <View style={styles.subcontainer}>
                 <Exercisetitle />
                 <Exercisecaption /> 
-                <Play onClick={() => {}}/> 
+                <Play onClick={() => navigation.navigate('Breathing')}/> 
                 <Duration/>         
 
             </View>
