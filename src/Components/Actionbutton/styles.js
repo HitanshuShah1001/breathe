@@ -22,10 +22,4 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     borderRadius: 20,
   },
-  subcontainer: {
-    marginTop: 30,
-    flexDirection: "row",
-    justifyContent: "space-around",
-    flex: 1,
-  },
 });
