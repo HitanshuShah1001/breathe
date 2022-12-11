@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { View, Text, StyleSheet, Dimensions,Button } from 'react-native'
+import { styles } from './styles'
 
 interface Props {
   duration: Number
@@ -37,9 +38,12 @@ export default function Timer({ duration }: Props) {
   }, [time,pause])
 
   return (
-    <View style={{flex:1,flexDirection:'row',justifyContent:'center',marginTop:25}}>
-      <Text>{minutes < 0 ? 0 : minutes} : </Text>
-      <Text>{seconds < 0 ? 0 : seconds}</Text>
+    <View style={styles.container}>
+      <View style={{flexDirection:'row'}}>{[minutes,seconds].map((item,index) => (
+        <Text key={index} style={styles.time}>{item < 0 ? 0 : item} {index===0 && ": "}</Text>
+      ))}
+      </View>
+      
       <Button title={pause?'Resume':'Pause'} onPress={() => setPause(!pause)}/>
     </View>
   )
