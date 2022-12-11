@@ -14,16 +14,16 @@ export default function Timer({ duration }: Props) {
   const durationRef = useRef(null)
 
 
-  const getTime = () => {
-    setTime(time-1);
-    console.log(time);
-    if (time <= 0) {
-      clearInterval(durationRef.current)
-      durationRef.current = null
-    }
-    setSeconds(Math.floor(time%60))
-    setMinutes(Math.floor(time/60))
-  }
+  // const getTime = () => {
+  //   setTime(time-1);
+  //   console.log(time);
+  //   if (time <= 0) {
+  //     clearInterval(durationRef.current)
+  //     durationRef.current = null
+  //   }
+  //   setSeconds(Math.floor(time%60))
+  //   setMinutes(Math.floor(time/60))
+  // }
   useEffect(() => {
     if(!pause){
       durationRef.current = setInterval(() => {
