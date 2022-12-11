@@ -9,7 +9,7 @@ export default function Timer({ duration }: Props) {
   const [minutes, setMinutes] = useState<number>(0)
   const [seconds, setSeconds] = useState<number>(0)
   const [time,setTime] = useState<number>(600);
-  const [pause,setPause] = useState<number>(false);
+  const [pause,setPause] = useState<boolean>(false);
 
   const durationRef = useRef(null)
 
@@ -24,6 +24,7 @@ export default function Timer({ duration }: Props) {
   //   setSeconds(Math.floor(time%60))
   //   setMinutes(Math.floor(time/60))
   // }
+
   useEffect(() => {
     if(!pause){
       durationRef.current = setInterval(() => {
@@ -32,10 +33,9 @@ export default function Timer({ duration }: Props) {
       setMinutes(Math.floor(time/60))
       }, 1000)
     }
-   
-
     return () => clearInterval(durationRef.current)
   }, [time,pause])
+
   return (
     <View style={{flex:1,flexDirection:'row',justifyContent:'center',marginTop:25}}>
       <Text>{minutes < 0 ? 0 : minutes} : </Text>
