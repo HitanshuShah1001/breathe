@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import {
   View,
   Text,
@@ -6,17 +6,19 @@ import {
 import { useNavigation } from '@react-navigation/native'
 import Actionbutton from '../../Components/Actionbutton/Actionbutton'
 import { styles } from './styles'
+import { Context } from '../../Statemanagement/Context'
 interface Props {
-  duration: Number
+  duration?: Number
 }
-export default function Timer({ duration }: Props) {
+export default function Timer() {
+  const {duration} = useContext(Context);
   const navigation = useNavigation();
   const [minutes, setMinutes] = useState<number>(0)
   const [seconds, setSeconds] = useState<number>(0)
-  const [time, setTime] = useState<number>(600)
+  const [time, setTime] = useState<number>(duration)
   const [pause, setPause] = useState<boolean>(false)
 
-  const durationRef = useRef<any>(null)
+  const durationRef = useRef<NodeJS.Timeout | any >(null)
 
   const Stop = () => {
     clearInterval(durationRef.current);

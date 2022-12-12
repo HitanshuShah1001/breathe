@@ -16,7 +16,7 @@ const Breathing = () => {
   return (
     <View style={{ flex: 1 }}>
       <BreatheAnimation />
-      <Timer duration={60} />
+      <Timer />
     </View>
   )
 }
