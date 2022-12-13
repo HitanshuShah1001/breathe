@@ -6,6 +6,7 @@ import Exercisecaption from "../../Components/Exercisecaption/Exercisecaption";
 import Exercisetitle from "../../Components/Exercisetitle/Exercisetitle";
 import Play from "../../Components/Play/Play";
 import { styles } from "./styles";
+import Dropdown from "../../Components/Dropdown/Dropdown";
 
 
 export default function Startbreathing(){
@@ -18,8 +19,8 @@ export default function Startbreathing(){
                 <Exercisetitle />
                 <Exercisecaption /> 
                 <Play onClick={() => navigation.navigate('Breathing')}/> 
-                <Duration/>         
-
+                {/* <Duration/>          */}
+                <Dropdown />
             </View>
             <View style={{flex:2}}>
 

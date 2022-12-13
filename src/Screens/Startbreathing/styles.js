@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   subcontainer: {
-    flex: 4,
+    flex: 6,
     alignItems: "center",
     justifyContent: "space-around",
   },
