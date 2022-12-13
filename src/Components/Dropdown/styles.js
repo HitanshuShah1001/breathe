@@ -14,4 +14,10 @@ export const styles = StyleSheet.create({
     padding: 8,
     alignSelf: "center",
   },
+  subcontainer: {
+    width: 100,
+    borderRadius: 10,
+    backgroundColor: "black",
+  },
+  duration: { alignItems: "center", marginVertical: 10 },
 });

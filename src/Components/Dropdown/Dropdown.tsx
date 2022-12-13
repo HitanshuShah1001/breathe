@@ -8,7 +8,7 @@ export default function Dropdown() {
   const [show, setShow] = useState(false)
   return (
     <View style={styles.container}>
-      <View style={{ width: 100, borderRadius: 10,backgroundColor:'black' }}>
+      <View style={styles.subcontainer}>
         <TouchableOpacity
           style={styles.dropdown}
           onPress={() => setShow(!show)}
@@ -21,7 +21,7 @@ export default function Dropdown() {
             {Labels.map((item,index) => {
               return (
                 <TouchableOpacity
-                  style={{ alignItems: 'center',marginVertical:5 }}
+                  style={styles.duration}
                   onPress={() => {
                     setDuration(item.value * 60)
                     setShow(!show)
