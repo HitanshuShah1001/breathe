@@ -7,6 +7,7 @@ import Startbreathing from './src/Screens/Startbreathing/Startbreathing';
 import { Context } from './src/Statemanagement/Context';
 import Home from './src/Screens/Home/Home';
 import { useFonts } from 'expo-font';
+import Navigation from './Navigation';
 const Stack = createNativeStackNavigator();
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -20,14 +21,7 @@ export default function App() {
   return (
     // 
     <Context.Provider value={values}>
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName='Home'>
-        <Stack.Screen name="Breathing" component={Breathing} options={{headerShown:false}}/>
-        <Stack.Screen name="StartBreathing" component={Startbreathing} options={{headerShown:false}}/>
-        <Stack.Screen name="Home" component={Home} options={{headerShown:false}}/>
-
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Navigation />
     </Context.Provider>
     
   );

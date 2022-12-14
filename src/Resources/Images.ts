@@ -1,11 +1,13 @@
-const Angry = require("../../assets/Photos/Angry/Angry.jpeg");
-const Cluttered = require("../../assets/Photos/Cluttered/Cluttered.jpeg");
-const Excited = require("../../assets/Photos/Excited/Excited.gif");
-const Insomnia = require("../../assets/Photos/Insomnia/Insomnia.jpeg");
-const Stressed = require("../../assets/Photos/Stressed/Stressed.jpeg");
-const Tired = require("../../assets/Photos/Tired/Tired.jpeg");
+import { ImageSourcePropType } from "react-native";
 
-export const Sources: Array<any> = [
+const Angry: ImageSourcePropType = require("../../assets/Photos/Angry/Angry.jpeg");
+const Cluttered: ImageSourcePropType = require("../../assets/Photos/Cluttered/Cluttered.jpeg");
+const Excited: ImageSourcePropType = require("../../assets/Photos/Excited/Excited.gif");
+const Insomnia: ImageSourcePropType = require("../../assets/Photos/Insomnia/Insomnia.jpeg");
+const Stressed: ImageSourcePropType = require("../../assets/Photos/Stressed/Stressed.jpeg");
+const Tired: ImageSourcePropType = require("../../assets/Photos/Tired/Tired.jpeg");
+
+export const Sources: Array<ImageSourcePropType> = [
   Angry,
   Cluttered,
   Excited,
