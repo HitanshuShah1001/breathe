@@ -5,6 +5,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import Breathing from './src/Screens/Breathing/Breathing';
 import Startbreathing from './src/Screens/Startbreathing/Startbreathing';
 import { Context } from './src/Statemanagement/Context';
+import Home from './src/Screens/Home/Home';
 const Stack = createNativeStackNavigator();
 export default function App() {
   const [duration,setDuration] = useState<number>(120);
@@ -13,9 +14,11 @@ export default function App() {
     // 
     <Context.Provider value={values}>
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='StartBreathing'>
+      <Stack.Navigator initialRouteName='Home'>
         <Stack.Screen name="Breathing" component={Breathing} options={{headerShown:false}}/>
         <Stack.Screen name="StartBreathing" component={Startbreathing} options={{headerShown:false}}/>
+        <Stack.Screen name="Home" component={Home} options={{headerShown:false}}/>
+
       </Stack.Navigator>
     </NavigationContainer>
     </Context.Provider>
