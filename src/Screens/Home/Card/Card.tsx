@@ -1,17 +1,19 @@
-import {View,Text,Image} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import {View,Text,Image, Pressable} from 'react-native';
 import { styles } from './styles';
 
 interface Props {
     uri:any;
     uri2:any;
     label:String;
-    label2:String
+    label2:String;
 }
-export default function Card({uri,uri2,label,label2}:Props){
-
+export default function Card({uri,uri2,label,label2,action}:Props){
+  const navigation = useNavigation();
     return (
-        <View
+        <Pressable
         style={styles.container}
+        onPress={() => navigation.navigate('Startbreathing')}
       >
         <View
           style={styles.subcontainer}
@@ -33,6 +35,6 @@ export default function Card({uri,uri2,label,label2}:Props){
           />
           <Text style={styles.text}>{label2}</Text>
         </View>
-      </View>
+      </Pressable>
     )
 }
