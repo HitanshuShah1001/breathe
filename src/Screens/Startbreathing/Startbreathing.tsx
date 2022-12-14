@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Pressable, View } from 'react-native'
+import { Pressable, SafeAreaView, View } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import Duration from '../../Components/Duration/Duration'
 import Exercisecaption from '../../Components/Exercisecaption/Exercisecaption'
@@ -12,6 +12,7 @@ import Close from '../../Components/Close/Close'
 export default function Startbreathing() {
   const navigation = useNavigation()
   return (
+    <SafeAreaView style={{flex:1}}>
     <View style={styles.parent}>
      
       <View style={styles.container}>
@@ -27,5 +28,6 @@ export default function Startbreathing() {
       </View>
       <View style={{ flex: 2 }}></View>
     </View>
+    </SafeAreaView>
   )
 }

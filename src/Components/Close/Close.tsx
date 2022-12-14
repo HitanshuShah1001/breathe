@@ -4,8 +4,8 @@ import { Image, Pressable } from "react-native";
 export default function Close(){
     const navigation = useNavigation();
     return (
-        <Pressable onPress={() => navigation.goBack()}>
-        <Image source={require('../../../assets/error.png')} style={{width:30,height:30,position:'absolute',right:20}}/>
+        <Pressable onPress={() => navigation.goBack()} style={{width:30,height:30,right:20,marginTop:10}}>
+        <Image source={require('../../../assets/error.png')} style={{width:30,height:30}} />
         </Pressable>
     )
 }
