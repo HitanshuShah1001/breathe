@@ -3,7 +3,7 @@ import { Pressable,Text } from "react-native";
 import { styles } from "./styles";
 
 interface Props {
-    action:() => void
+    action:any
     showpause?:Boolean
     pause?:Boolean
 }
