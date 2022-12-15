@@ -8,11 +8,14 @@ import Play from '../../Components/Play/Play'
 import { styles } from './styles'
 import Dropdown from '../../Components/Dropdown/Dropdown'
 import Close from '../../Components/Close/Close'
+import { LinearGradient } from 'expo-linear-gradient'
 
 export default function Startbreathing() {
   const navigation = useNavigation()
   return (
     <SafeAreaView style={{flex:1}}>
+        <LinearGradient style={{flex:1,justifyContent:'space-around'}}  start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }} colors={['#c2e59c','#64b3f4']}>
     <View style={styles.parent}>
      
       <View style={styles.container}>
@@ -28,6 +31,7 @@ export default function Startbreathing() {
       </View>
       <View style={{ flex: 2 }}></View>
     </View>
+    </LinearGradient>
     </SafeAreaView>
   )
 }

@@ -4,9 +4,11 @@ import {
   Text,
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+import { Audio } from 'expo-av'
 import Actionbutton from '../../Components/Actionbutton/Actionbutton'
 import { styles } from './styles'
 import { Context } from '../../Statemanagement/Context'
+import Play from '../../Components/Play/Play'
 interface Props {
   duration?: Number
 }
@@ -15,16 +17,42 @@ export default function Timer() {
   const navigation = useNavigation();
   const [minutes, setMinutes] = useState<number>(0)
   const [seconds, setSeconds] = useState<number>(0)
-  const [time, setTime] = useState<number>(duration)
+  const [time, setTime] = useState<Number>(duration)
   const [pause, setPause] = useState<boolean>(false)
+  const [sound,setSound] = useState<any>();
+
+  const playSound = async() => {
+    const { sound } = await Audio.Sound.createAsync(require('../../../Music/Anxiety.mp3'));
+    setSound(sound);
+    await sound.playAsync();
+  }
+
+  useEffect(() => {
+    playSound();
+    return sound ? () => {
+      sound.unloadAsync();
+    }:undefined
+  },[])
 
   const durationRef = useRef<NodeJS.Timeout | any >(null)
 
-  const Stop = () => {
+  const Stop = async() => {
+    await sound.unloadAsync()
     clearInterval(durationRef.current);
     navigation.goBack();
   }
 
+  const Pause = async () => {
+    setPause(true);
+    await sound.pauseAsync(); 
+  }
+
+  const Resume = async() => {
+    setPause(false);
+    await sound.playAsync();
+  }
+
+  const RenderAction = () => pause? Resume():Pause();
   useEffect(() => {
     if (!pause) {
       durationRef.current = setInterval(() => {
@@ -48,7 +76,7 @@ export default function Timer() {
       <View
         style={styles.subcontainer}
       >
-        <Actionbutton action={() => setPause(!pause)} pause={pause} showpause />
+        <Actionbutton action={RenderAction} pause={pause} showpause />
         <Actionbutton action={Stop} />
       </View>
     </View>

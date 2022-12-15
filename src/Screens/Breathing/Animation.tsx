@@ -1,10 +1,13 @@
 
-import React, {useRef} from 'react';
+import React, {useContext, useRef} from 'react';
 import {Animated, Dimensions, Easing, StyleSheet,Text, View} from 'react-native';
+import { Context } from '../../Statemanagement/Context';
 
 const {width, height} = Dimensions.get('window');
 const circleSize = width / 2;
 const BreatheAnimation = () => {
+
+  const {colors} = useContext(Context);
   const move = useRef(new Animated.Value(0)).current;
   const textOpacity = useRef(new Animated.Value(1)).current;
 
@@ -90,7 +93,7 @@ const BreatheAnimation = () => {
           key={item}
           style={{
             opacity:0.1,
-            backgroundColor:'purple',
+            backgroundColor:colors.Breathe,
             width:circleSize,
             height:circleSize,
             borderRadius:circleSize/2,

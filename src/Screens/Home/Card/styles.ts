@@ -12,5 +12,5 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
   },
   image: { height: "70%", width: "80%", borderRadius: 20 },
-  text: { fontFamily: "Secular" },
+  text: { fontFamily: "Secular", marginTop: 5 },
 });
