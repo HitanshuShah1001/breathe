@@ -90,7 +90,7 @@ const BreatheAnimation = () => {
           key={item}
           style={{
             opacity:0.1,
-            backgroundColor:'purple',
+            backgroundColor:'#6495ED',
             width:circleSize,
             height:circleSize,
             borderRadius:circleSize/2,

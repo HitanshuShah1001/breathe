@@ -14,9 +14,6 @@ import { Audio } from 'expo-av'
 const { width, height } = Dimensions.get('window')
 const circleSize = width / 2
 const Breathing = () => {
-
-
- 
   return (
     <View style={{ flex: 1 }}>
       <BreatheAnimation />
