@@ -1,25 +1,25 @@
 import { useState } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native';
-import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
-import Breathing from './src/Screens/Breathing/Breathing';
-import Startbreathing from './src/Screens/Startbreathing/Startbreathing';
+import { ActivityIndicator, StyleSheet } from 'react-native';
 import { Context } from './src/Statemanagement/Context';
-import Home from './src/Screens/Home/Home';
 import { useFonts } from 'expo-font';
 import Navigation from './Navigation';
-const Stack = createNativeStackNavigator();
+import { Light,Dark } from './src/Utils/Constants/Colors';
+
 export default function App() {
+
   let [fontsLoaded] = useFonts({
     'Secular':require('./assets/fonts/SecularOne-Regular.ttf') 
   })
+
   const [duration,setDuration] = useState<number>(120);
-  const values = {duration,setDuration}
+  const [colors,setColors] = useState<Object>(Light);
+  const values = {duration,setDuration,colors,setColors}
   if(!fontsLoaded){
     return <ActivityIndicator />
   }
   return (
-    // 
+  
     <Context.Provider value={values}>
     <Navigation />
     </Context.Provider>
