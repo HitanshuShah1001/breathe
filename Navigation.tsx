@@ -4,9 +4,27 @@ import { Screens } from './src/Utils/Screens'
 import Settings from './src/Screens/Settings/Settings'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
+
+type HomeStackParams = {
+    Home:undefined
+    Startbreathing:{
+        mood:String
+    }
+    Breathing:{
+        mood:String
+    }
+}
+
+type SettingsStackParams = {
+    Settings:undefined
+}
+
+
 const Tab = createBottomTabNavigator()
 const HomeStack = createNativeStackNavigator()
 const SettingsStack = createNativeStackNavigator()
+
+
 
 function HomeStackScreen() {
   return (
@@ -29,7 +47,10 @@ function SettingsStackScreen() {
 export default function Navigation() {
   return (
     <NavigationContainer>
-      <Tab.Navigator screenOptions={{headerShown:false}}>
+      <Tab.Navigator screenOptions={{headerShown:false,tabBarLabelStyle:{
+        fontFamily:'Secular',
+        color:'black'
+      }}}  >
         <Tab.Screen name="Breathe" component={HomeStackScreen}/>
         <Tab.Screen name="Settings" component={SettingsStackScreen} />
       </Tab.Navigator>
