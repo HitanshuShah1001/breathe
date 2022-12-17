@@ -2,7 +2,11 @@ import Breathing from "../Screens/Breathing/Breathing";
 import Home from "../Screens/Home/Home";
 import Startbreathing from "../Screens/Startbreathing/Startbreathing";
 
-export const Screens = [
+interface ScreenOptions {
+  name: String;
+  component: Function;
+}
+export const Screens: Array<ScreenOptions> = [
   {
     name: "Home",
     component: Home,
