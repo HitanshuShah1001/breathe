@@ -2,7 +2,7 @@ import React from "react";
 import { Image, Pressable } from "react-native";
 
 interface Props {
-onClick:any
+onClick?:any
 }
 
 export default function Play({onClick}:Props){

@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { ActivityIndicator, StyleSheet } from 'react-native';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { Context } from './src/Statemanagement/Context';
 import { useFonts } from 'expo-font';
 import Navigation from './Navigation';
@@ -21,7 +20,9 @@ export default function App() {
   return (
   
     <Context.Provider value={values}>
+      <View style={{flex:1}}>
     <Navigation />
+    </View>
     </Context.Provider>
     
   );
