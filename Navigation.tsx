@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { Screens } from './src/Utils/Screens'
 import Settings from './src/Screens/Settings/Settings'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import Breatheicon from './src/Components/Breatheicon/Breatheicon'
 
 
 type HomeStackParams = {
@@ -50,8 +51,9 @@ export default function Navigation() {
       <Tab.Navigator screenOptions={{headerShown:false,tabBarLabelStyle:{
         fontFamily:'Secular',
         color:'black'
-      }}}  >
-        <Tab.Screen name="Breathe" component={HomeStackScreen}/>
+      },tabBarActiveTintColor:'blue'}}
+        >
+        <Tab.Screen name="Breathe" component={HomeStackScreen} options={{tabBarIcon:({color,focused}) => <Breatheicon />}}/>
         <Tab.Screen name="Settings" component={SettingsStackScreen} />
       </Tab.Navigator>
     </NavigationContainer>

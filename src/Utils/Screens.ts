@@ -3,7 +3,7 @@ import Home from "../Screens/Home/Home";
 import Startbreathing from "../Screens/Startbreathing/Startbreathing";
 
 interface ScreenOptions {
-  name: String;
+  name: string;
   component: Function;
 }
 export const Screens: Array<ScreenOptions> = [
