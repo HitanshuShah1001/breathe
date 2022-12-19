@@ -1,13 +1,17 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { View, Text, StyleSheet, Switch, SafeAreaView } from 'react-native'
 import { styles } from './styles'
+import { Context } from '../../Statemanagement/Context'
 
 export default function Settings() {
   const [enabled, setEnabled] = useState(false)
+  const {Lightmode,setLightMode} = useContext(Context);
 
   const toggleMode = () => {
+    setLightMode(!Lightmode);
     setEnabled((enabled) => !enabled)
   }
+  
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View
