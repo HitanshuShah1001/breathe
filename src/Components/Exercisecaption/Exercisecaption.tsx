@@ -9,7 +9,7 @@ interface Props {
 export default function Exercisecaption({text="Tap to start the exercise",color}:Props) {
   return (
     <View style={styles.container}>
-    <Text style={[styles.text,{color:color}]}>{text}</Text>
+    <Text style={[styles.text,{color:color as any}]}>{text}</Text>
     </View>
   )
   
