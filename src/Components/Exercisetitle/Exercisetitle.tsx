@@ -6,13 +6,13 @@ interface Props {
     text?:String,
     color?:String
 }
-export default function Exercisetitle({text="Mindful breathing"}:Props) {
+export default function Exercisetitle({text="Mindful breathing",color}:Props) {
     let splittext = text.split(" ")
   return (
     <View>
     {
         splittext?.map((text,index) => (
-            <Text style={styles.text} key={index}>{text}</Text>
+            <Text style={[styles.text,{color:color}]} key={index}>{text}</Text>
         ))
     }
     </View>

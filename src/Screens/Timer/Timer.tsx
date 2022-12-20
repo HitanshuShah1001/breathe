@@ -8,16 +8,16 @@ import { Audio } from 'expo-av'
 import Actionbutton from '../../Components/Actionbutton/Actionbutton'
 import { styles } from './styles'
 import { Context } from '../../Statemanagement/Context'
-import Play from '../../Components/Play/Play'
+
 interface Props {
-  duration?: Number
-}
-export default function Timer() {
+  color:String}
+
+  export default function Timer({color}:Props) {
   const {duration} = useContext(Context);
   const navigation = useNavigation();
   const [minutes, setMinutes] = useState<number>(0)
   const [seconds, setSeconds] = useState<number>(0)
-  const [time, setTime] = useState<Number>(duration)
+  const [time, setTime] = useState<number>(duration)
   const [pause, setPause] = useState<boolean>(false)
   const [sound,setSound] = useState<any>();
 
@@ -66,9 +66,9 @@ export default function Timer() {
 
   return (
     <View style={styles.container}>
-      <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+      <View style={{ flexDirection: 'row', justifyContent: 'center',marginTop:20 }}>
         {[minutes, seconds].map((item, index) => (
-          <Text key={index} style={styles.time}>
+          <Text key={index} style={[styles.time,{color:color}]}>
             {item < 0 ? '00' : item} {index === 0 && ': '}
           </Text>
         ))}
