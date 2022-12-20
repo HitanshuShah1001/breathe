@@ -8,7 +8,8 @@ const Stressed: ImageSourcePropType = require("../../assets/Photos/Stressed/Stre
 const Tired: ImageSourcePropType = require("../../assets/Photos/Tired/Tired.jpeg");
 export const Breathe: ImageSourcePropType = require("../../assets/meditate.png");
 export const SettingIcon: ImageSourcePropType = require("../../assets/setting.png");
-
+export const Canceldark: ImageSourcePropType = require("../../assets/cancel.png");
+export const CancelLight: ImageSourcePropType = require("../../assets/error.png");
 export const Sources: Array<ImageSourcePropType> = [
   Angry,
   Cluttered,

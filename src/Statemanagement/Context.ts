@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction } from "react";
 
-interface Colortypes {
+export interface Colortypes {
   Background: Array<string>;
   Text: string;
   Breathe: string;
