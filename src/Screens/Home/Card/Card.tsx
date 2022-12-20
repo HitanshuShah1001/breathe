@@ -7,8 +7,9 @@ interface Props {
     uri2:any;
     label:String;
     label2:String;
+    color:String;
 }
-export default function Card({uri,uri2,label,label2,action}:Props){
+export default function Card({uri,uri2,label,label2,color}:Props){
   const navigation = useNavigation();
     return (
         <Pressable
@@ -23,7 +24,7 @@ export default function Card({uri,uri2,label,label2,action}:Props){
             style={styles.image}
             resizeMode="cover"
           />
-          <Text style={styles.text}>{label}</Text>
+          <Text style={[styles.text,{color:color}]}>{label}</Text>
         </View>
         <View
           style={styles.subcontainer}
@@ -33,7 +34,7 @@ export default function Card({uri,uri2,label,label2,action}:Props){
             style={styles.image}
             resizeMode="cover"
           />
-          <Text style={styles.text}>{label2}</Text>
+          <Text style={[styles.text,{color:color}]}>{label2}</Text>
         </View>
       </Pressable>
     )
