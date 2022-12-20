@@ -92,7 +92,7 @@ const BreatheAnimation = () => {
           <Animated.View
           key={item}
           style={{
-            opacity:0.1,
+            opacity:0.2,
             backgroundColor:colors.Breathe,
             width:circleSize,
             height:circleSize,

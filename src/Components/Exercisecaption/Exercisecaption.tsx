@@ -6,10 +6,10 @@ interface Props {
     text?:String,
     color?:String
 }
-export default function Exercisecaption({text="Tap to start the exercise"}:Props) {
+export default function Exercisecaption({text="Tap to start the exercise",color}:Props) {
   return (
     <View style={styles.container}>
-    <Text style={styles.text}>{text}</Text>
+    <Text style={[styles.text,{color:color}]}>{text}</Text>
     </View>
   )
   

@@ -1,9 +1,14 @@
 import React, { Dispatch, SetStateAction } from "react";
 
+interface Colortypes {
+  Background: Array<string>;
+  Text: string;
+  Breathe: string;
+}
 interface Context {
-  duration: Number;
+  duration: number;
   Lightmode: Boolean;
-  colors: Object;
+  colors: Colortypes;
   setDuration: Dispatch<SetStateAction<number>>;
   setLightMode: Dispatch<SetStateAction<Boolean>>;
   setColors: Dispatch<SetStateAction<Object>>;

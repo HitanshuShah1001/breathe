@@ -13,5 +13,5 @@ export const Light: Types = {
 export const Dark: Types = {
   Background: ["#0D1936", "#0D1936"],
   Text: "#FFFFFF",
-  Breathe: "light-green",
+  Breathe: "#90EE90",
 };
