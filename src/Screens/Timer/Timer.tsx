@@ -14,9 +14,9 @@ interface Props {
 export default function Timer({ color, buttoncolor }: Props) {
   const { duration } = useContext(Context);
   const navigation = useNavigation();
-  const [minutes, setMinutes] = useState<number>(0);
-  const [seconds, setSeconds] = useState<number>(0);
   const [time, setTime] = useState<number>(duration);
+  const [minutes, setMinutes] = useState<number>(Math.floor(time / 60));
+  const [seconds, setSeconds] = useState<number>(Math.floor(time % 60));
   const [pause, setPause] = useState<boolean>(false);
   const [sound, setSound] = useState<any>();
 
