@@ -55,7 +55,7 @@ export default function App() {
     loadResources();
   }, []);
 
-  if (!fontsLoaded || !isLoaded) {
+  if (!fontsLoaded) {
     return <ActivityIndicator />;
   } else {
     return (
