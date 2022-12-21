@@ -11,11 +11,9 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
   },
   button: {
-    backgroundColor: "green",
     color: "white",
   },
   pressable: {
-    backgroundColor: "lightgreen",
     width: 100,
     alignItems: "center",
     height: 45,

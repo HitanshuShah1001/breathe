@@ -4,6 +4,8 @@ export interface Colortypes {
   Background: Array<string>;
   Text: string;
   Breathe: string;
+  Breathetext: String;
+  Buttoncolor: String;
 }
 interface Context {
   duration: number;
