@@ -47,13 +47,13 @@ export default function App() {
     return Promise.all(cacheImages);
   };
 
-  useEffect(() => {
-    const loadResources = async () => {
-      await cacheResources();
-      setisLoaded(true);
-    };
-    loadResources();
-  }, []);
+  // useEffect(() => {
+  //   const loadResources = async () => {
+  //     await cacheResources();
+  //     setisLoaded(true);
+  //   };
+  //   loadResources();
+  // }, []);
 
   if (!fontsLoaded) {
     return <ActivityIndicator />;
