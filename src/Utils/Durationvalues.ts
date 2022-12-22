@@ -3,7 +3,7 @@ interface Labels {
   value: Number;
 }
 
-let Label = [];
+let Label: Labels[] = [];
 
 for (let i = 1; i < 11; i++) {
   Label.push({
