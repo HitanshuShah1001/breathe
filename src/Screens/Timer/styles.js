@@ -5,6 +5,11 @@ export const styles = StyleSheet.create({
     flex: 1,
     marginTop: 25,
   },
+  view: {
+    flexDirection: "row",
+    justifyContent: "center",
+    marginTop: 20,
+  },
   time: {
     fontSize: 20,
     alignSelf: "center",
