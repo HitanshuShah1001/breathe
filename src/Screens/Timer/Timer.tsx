@@ -52,9 +52,13 @@ export default function Timer({ color, buttoncolor }: Props) {
 
   const playSound = async () => {
     const { sound } = await Audio.Sound.createAsync(
-      require("../../../Music/Anxiety.mp3")
+      require("../../../Music/Anxiety.mp3"),
+      {
+        isLooping: true,
+      }
     );
     setSound(sound);
+
     await sound.playAsync();
   };
 
