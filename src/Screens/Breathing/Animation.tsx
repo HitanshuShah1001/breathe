@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { Context } from "../../Statemanagement/Context";
 
-const { width, height } = Dimensions.get("window");
+const { width } = Dimensions.get("window");
 const circleSize = width / 2;
 const BreatheAnimation = () => {
   const { colors } = useContext(Context);

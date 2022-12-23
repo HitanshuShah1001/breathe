@@ -5,7 +5,7 @@ interface Labels {
 
 let Label: Labels[] = [];
 
-for (let i = 1; i < 11; i++) {
+for (let i = 1; i < 6; i++) {
   Label.push({
     label: i.toString() + " " + "mins",
     value: i,
