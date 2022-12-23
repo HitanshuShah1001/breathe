@@ -16,7 +16,8 @@ export default function App() {
   const [Lightmode, setLightMode] = useState<Boolean>(true);
   const [duration, setDuration] = useState<number>(120);
   const [colors, setColors] = useState<Object>(Light);
-  const [sessions, setSessions] = useState<number>();
+  const [sessions, setSessions] = useState<number>(0);
+  const [sound, setSound] = useState<String>("Angry");
 
   useEffect(() => {
     checkBreatheSessions();
@@ -31,6 +32,8 @@ export default function App() {
     setLightMode,
     sessions,
     setSessions,
+    sound,
+    setSound,
   };
 
   const checkBreatheSessions = async () => {

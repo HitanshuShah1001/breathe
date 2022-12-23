@@ -6,6 +6,7 @@ import Actionbutton from "../../Components/Actionbutton/Actionbutton";
 import { styles } from "./styles";
 import { Context } from "../../Statemanagement/Context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Music } from "../../Resources/Music";
 
 interface Props {
   color: String;
@@ -13,7 +14,7 @@ interface Props {
 }
 
 export default function Timer({ color, buttoncolor }: Props) {
-  const { duration, sessions, setSessions } = useContext(Context);
+  const { duration, sessions, setSessions, sound: music } = useContext(Context);
   const navigation = useNavigation();
   const [time, setTime] = useState<number>(duration);
   const [minutes, setMinutes] = useState<number>(Math.floor(time / 60));
@@ -23,7 +24,6 @@ export default function Timer({ color, buttoncolor }: Props) {
   const durationRef = useRef<NodeJS.Timeout | any>(null);
 
   useEffect(() => {
-    console.log(sessions, "Sessions");
     playSound();
     return sound
       ? () => {
@@ -52,7 +52,7 @@ export default function Timer({ color, buttoncolor }: Props) {
 
   const playSound = async () => {
     const { sound } = await Audio.Sound.createAsync(
-      require("../../../Music/Anxiety.mp3"),
+      Music[Music.findIndex((x) => x.mood == music)].audio,
       {
         isLooping: true,
       }
