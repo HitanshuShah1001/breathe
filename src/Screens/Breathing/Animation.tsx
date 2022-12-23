@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import {
   Animated,
   Dimensions,
@@ -12,7 +12,7 @@ import { Context } from "../../Statemanagement/Context";
 const { width } = Dimensions.get("window");
 const circleSize = width / 2;
 const BreatheAnimation = () => {
-  const { colors } = useContext(Context);
+  const { colors, paused } = useContext(Context);
   const move = useRef(new Animated.Value(0)).current;
   const textOpacity = useRef(new Animated.Value(1)).current;
 
@@ -46,6 +46,13 @@ const BreatheAnimation = () => {
       ]),
     ])
   ).start();
+
+  useEffect(() => {
+    if (paused) {
+      move.stopAnimation();
+    }
+  }, [paused]);
+
   const translate = move.interpolate({
     inputRange: [0, 1],
     outputRange: [0, circleSize / 6],

@@ -13,10 +13,12 @@ interface Context {
   colors: Colortypes;
   sessions: number;
   sound: String;
+  paused: Boolean;
   setDuration: Dispatch<SetStateAction<number>>;
   setLightMode: Dispatch<SetStateAction<Boolean>>;
   setColors: Dispatch<SetStateAction<Object>>;
   setSessions: Dispatch<SetStateAction<number>>;
   setSound: Dispatch<SetStateAction<String>>;
+  setPaused: Dispatch<SetStateAction<Boolean>>;
 }
 export const Context = React.createContext<Context>();
