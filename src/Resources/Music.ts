@@ -1,4 +1,11 @@
-export const Music = [
+import { AVPlaybackSource } from "expo-av";
+
+interface Music {
+  mood: string;
+  audio: AVPlaybackSource;
+}
+
+export const Music: Array<Music> = [
   {
     mood: "Angry",
     audio: require("../../Sounds/Insomnia.mp3"),

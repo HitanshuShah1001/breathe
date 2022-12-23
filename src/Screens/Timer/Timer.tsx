@@ -24,7 +24,6 @@ export default function Timer({ color, buttoncolor }: Props) {
   const durationRef = useRef<NodeJS.Timeout | any>(null);
 
   useEffect(() => {
-    console.log(sessions, "Sessions");
     playSound();
     return sound
       ? () => {
