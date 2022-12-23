@@ -14,7 +14,13 @@ interface Props {
 }
 
 export default function Timer({ color, buttoncolor }: Props) {
-  const { duration, sessions, setSessions, sound: music } = useContext(Context);
+  const {
+    duration,
+    sessions,
+    setSessions,
+    sound: music,
+    setPaused,
+  } = useContext(Context);
   const navigation = useNavigation();
   const [time, setTime] = useState<number>(duration);
   const [minutes, setMinutes] = useState<number>(Math.floor(time / 60));
@@ -65,15 +71,19 @@ export default function Timer({ color, buttoncolor }: Props) {
   const Stop = async () => {
     await sound.unloadAsync();
     clearInterval(durationRef.current);
+    setPaused(false);
+    setPause(false);
     navigation.goBack();
   };
 
   const Pause = async () => {
-    setPause(true);
     await sound.pauseAsync();
+    setPaused(true);
+    setPause(true);
   };
 
   const Resume = async () => {
+    setPaused(false);
     setPause(false);
     await sound.playAsync();
   };
