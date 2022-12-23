@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { SafeAreaView, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
@@ -8,7 +8,10 @@ import GoBack from "./Close/Close";
 import Body from "./Body/Body";
 
 export default function Startbreathing() {
-  const { colors } = useContext(Context);
+  const { colors, sound } = useContext(Context);
+  useEffect(() => {
+    console.log(sound, "Sound");
+  }, []);
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <LinearGradient
