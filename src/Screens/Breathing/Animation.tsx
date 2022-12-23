@@ -8,6 +8,8 @@ import {
   View,
 } from "react-native";
 import { Context } from "../../Statemanagement/Context";
+import { styles } from "./styles";
+import Animatedcircles from "./Animatedview/Animatedcircles";
 
 const { width } = Dimensions.get("window");
 const circleSize = width / 2;
@@ -63,48 +65,9 @@ const BreatheAnimation = () => {
   });
   return (
     <View style={styles.container}>
-      <Animated.View
-        style={{
-          width: circleSize,
-          height: circleSize,
-          ...StyleSheet.absoluteFill,
-          alignItems: "center",
-          justifyContent: "center",
-          opacity: textOpacity,
-        }}
-      >
-        <Text
-          style={{
-            fontSize: 20,
-            fontWeight: "900",
-            color: colors.Breathetext,
-            fontFamily: "Secular",
-          }}
-        >
-          Inhale
-        </Text>
-      </Animated.View>
-      <Animated.View
-        style={{
-          width: circleSize,
-          height: circleSize,
-          ...StyleSheet.absoluteFill,
-          alignItems: "center",
-          justifyContent: "center",
-          opacity: exhale,
-        }}
-      >
-        <Text
-          style={{
-            fontSize: 20,
-            fontWeight: "900",
-            color: colors.Breathetext,
-            fontFamily: "Secular",
-          }}
-        >
-          Exhale
-        </Text>
-      </Animated.View>
+      <Animatedcircles textOpacity={textOpacity} text={"Inhale"} />
+      <Animatedcircles textOpacity={exhale} text={"Exhale"} />
+
       {[0, 1, 2, 3, 4, 5, 6, 7].map((item) => {
         const rotation = move.interpolate({
           inputRange: [0, 1],
@@ -134,15 +97,5 @@ const BreatheAnimation = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: "center",
-    justifyContent: "center",
-    flex: 1,
-    top: width / 4,
-    left: width / 4,
-  },
-});
 
 export default BreatheAnimation;
