@@ -1,6 +1,10 @@
-import { View, Text } from "react-native";
+import { Text } from "react-native";
 import { styles } from "./styles";
+import { useContext } from "react";
+import { Context } from "../../Statemanagement/Context";
 
 export default function ContactUs() {
-  return <Text style={styles.text}>ContactUs</Text>;
+  const { colors } = useContext(Context);
+  console.log(colors);
+  return <Text style={[styles.text, { color: colors.Text }]}>ContactUs</Text>;
 }
