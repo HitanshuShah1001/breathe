@@ -4,6 +4,7 @@ import { styles } from "./styles";
 import { Context } from "../../Statemanagement/Context";
 import { Light, Dark } from "../../Utils/Constants/Colors";
 import { LinearGradient } from "expo-linear-gradient";
+import ContactUs from "../../Components/Contactus/Contactus";
 export default function Settings() {
   const [enabled, setEnabled] = useState(false);
   const { Lightmode, setLightMode, colors, setColors } = useContext(Context);
@@ -33,6 +34,7 @@ export default function Settings() {
               value={enabled}
             />
           </View>
+          <ContactUs />
         </View>
       </LinearGradient>
     </SafeAreaView>
