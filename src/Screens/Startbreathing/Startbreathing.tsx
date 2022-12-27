@@ -15,15 +15,13 @@ export default function Startbreathing() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <LinearGradient
-        style={{ flex: 1, justifyContent: "space-around" }}
+        style={{ flex: 1, justifyContent: "center" }}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
         colors={colors.Background}
       >
         <View style={styles.parent}>
-          <GoBack />
           <Body colors={colors} />
-          <View style={{ flex: 2 }}></View>
         </View>
       </LinearGradient>
     </SafeAreaView>
