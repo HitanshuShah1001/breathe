@@ -3,7 +3,7 @@ import { View, TouchableOpacity, Text, ScrollView } from "react-native";
 import { styles } from "./styles";
 import { Labels } from "../../Utils/Durationvalues";
 import { Context } from "../../Statemanagement/Context";
-export default function Dropdown() {
+export default function MusicDropdown() {
   const { duration, setDuration } = React.useContext(Context);
   const [show, setShow] = useState(false);
   return (
