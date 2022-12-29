@@ -5,7 +5,7 @@ import { useFonts } from "expo-font";
 import Navigation from "./Navigation";
 import { Light } from "./src/Utils/Constants/Colors";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import * as Notifications from "expo-notifications";
+import { askNotificationPermission } from "./src/Utils/ScheduleNotification";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -25,31 +25,6 @@ export default function App() {
   useEffect(() => {
     askNotificationPermission();
   }, []);
-
-  const askNotificationPermission = async () => {
-    const permission = await Notifications.requestPermissionsAsync({
-      ios: {
-        allowAlert: true,
-        allowBadge: true,
-        allowSound: true,
-        allowDisplayInCarPlay: true,
-        allowAnnouncements: true,
-      },
-      android: {},
-    });
-    if (permission.status === "granted") {
-      Notifications.scheduleNotificationAsync({
-        content: {
-          title: "What are you dealing with currently?Let's make it simpler",
-        },
-        trigger: {
-          hour: 12,
-          minute: 30,
-          repeats: true,
-        },
-      });
-    }
-  };
 
   const values = {
     duration,
