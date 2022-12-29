@@ -3,7 +3,6 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 25,
   },
   view: {
     flexDirection: "row",
@@ -11,9 +10,10 @@ export const styles = StyleSheet.create({
     marginTop: 20,
   },
   time: {
-    fontSize: 20,
+    fontSize: 24,
     alignSelf: "center",
     justifyContent: "center",
+    fontFamily: "Secular",
   },
   button: {
     backgroundColor: "green",

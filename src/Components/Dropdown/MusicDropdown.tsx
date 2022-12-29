@@ -1,29 +1,29 @@
 import React, { useEffect, useRef, useState } from "react";
-import { View, TouchableOpacity, Text, ScrollView } from "react-native";
+import { View, TouchableOpacity, Text, ScrollView, Button } from "react-native";
 import { Audio } from "expo-av";
 import { styles } from "./styles";
 import { Music } from "../../Resources/Music";
 import { Context } from "../../Statemanagement/Context";
 import { useRoute } from "@react-navigation/native";
 import { AudioStoporPlay } from "../../Screens/Startbreathing/Body/Body";
+import ButtonLabels from "../Buttonlabels/Buttonlabels";
+import Selected from "../Tick/tick";
 
 export default function MusicDropdown() {
-  const route = useRoute();
   const { sound: music, setSound } = React.useContext(Context);
   const { audio, setAudio } = React.useContext(AudioStoporPlay);
   const [show, setShow] = useState<Boolean>(false);
   const timerRef = useRef<NodeJS.Timeout | any>(null);
 
-  // useEffect(() => {
-  //   stopAudioifnavigatedtoanotherroute();
-  // }, [route]);
-
-  const demoSound = async (mood: string) => {
+  const selectSound = async () => {
+    await audio?.stopAsync();
     setShow(!show);
-    setSound(mood);
+  };
+  const demoSound = async (music: string) => {
+    setSound(music);
     await audio?.stopAsync();
     const { sound } = await Audio.Sound.createAsync(
-      Music[Music.findIndex((x) => x.mood == mood)].audio,
+      Music[Music.findIndex((x) => x.mood == music)].audio,
       {
         isLooping: true,
       }
@@ -31,9 +31,9 @@ export default function MusicDropdown() {
 
     await sound.playAsync();
     setAudio(sound);
-    timerRef.current = setTimeout(() => {
-      sound.stopAsync();
-    }, 10000);
+    // timerRef.current = setTimeout(() => {
+    //   sound.stopAsync();
+    // }, 10000);
   };
 
   return (
@@ -43,7 +43,7 @@ export default function MusicDropdown() {
           style={styles.dropdown}
           onPress={() => setShow(!show)}
         >
-          <Text style={{ color: "white" }}>{music}</Text>
+          <ButtonLabels text={music} />
         </TouchableOpacity>
 
         {show && (
@@ -52,13 +52,17 @@ export default function MusicDropdown() {
               return (
                 <TouchableOpacity
                   style={styles.duration}
-                  onPress={() => demoSound(item.mood)}
+                  onPress={() => {
+                    demoSound(item.mood);
+                  }}
                   key={index}
                 >
-                  <Text style={{ color: "white" }}>{item.mood}</Text>
+                  <ButtonLabels text={item.mood} />
+                  {item.mood === music && <Selected />}
                 </TouchableOpacity>
               );
             })}
+            <Button title="Select" onPress={() => selectSound()} />
           </ScrollView>
         )}
       </View>

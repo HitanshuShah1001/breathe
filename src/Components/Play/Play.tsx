@@ -9,7 +9,7 @@ interface Props {
 }
 
 export default function Play({ onClick, props }: Props) {
-  const { Lightmode } = useContext(Context);
+  const { colors } = useContext(Context);
   return (
     <Pressable onPress={onClick}>
       <Svg
@@ -26,7 +26,7 @@ export default function Play({ onClick, props }: Props) {
           {...props}
         >
           <Path
-            fill={Lightmode ? "#303a52" : "#C2E59C"}
+            fill={colors.Playcolor}
             d="M16 0C7.164 0 0 7.164 0 16s7.164 16 16 16 16-7.164 16-16S24.836 0 16 0zm-6 24V8l16.008 8L10 24z"
             className="color4e4e50 svgShape"
           />

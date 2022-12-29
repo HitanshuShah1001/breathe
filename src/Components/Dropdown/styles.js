@@ -11,12 +11,16 @@ export const styles = StyleSheet.create({
   },
   container: {
     padding: 8,
-    alignSelf: "center",
   },
   subcontainer: {
     width: 100,
     borderRadius: 10,
-    backgroundColor: "black",
+    backgroundColor: "white",
   },
-  duration: { alignItems: "center", marginVertical: 10 },
+  duration: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginVertical: 10,
+    flexDirection: "row",
+  },
 });

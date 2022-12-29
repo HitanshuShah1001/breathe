@@ -5,6 +5,5 @@ import { Context } from "../../Statemanagement/Context";
 
 export default function ContactUs() {
   const { colors } = useContext(Context);
-  console.log(colors);
   return <Text style={[styles.text, { color: colors.Text }]}>ContactUs</Text>;
 }

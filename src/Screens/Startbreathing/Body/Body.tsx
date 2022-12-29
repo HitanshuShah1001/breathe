@@ -23,16 +23,32 @@ export default function Body({ colors }: Props) {
   return (
     <AudioStoporPlay.Provider value={values}>
       <View style={styles.subcontainer}>
-        <Exercisetitle color={colors.Text} />
-        <Exercisecaption color={colors.Text} />
-        <Play
-          onClick={async () => {
-            await audio?.stopAsync();
-            navigation.navigate("Breathing");
+        <View
+          style={{
+            flex: 0.8,
+            alignItems: "center",
+            justifyContent: "space-around",
           }}
-        />
-        <Dropdown />
-        <MusicDropdown />
+        >
+          <Exercisetitle color={colors.Text} />
+          <Exercisecaption color={colors.Text} />
+          <Play
+            onClick={async () => {
+              await audio?.stopAsync();
+              navigation.navigate("Breathing");
+            }}
+          />
+        </View>
+        <View
+          style={{
+            flex: 0.7,
+            flexDirection: "row",
+            paddingTop: 40,
+          }}
+        >
+          <Dropdown />
+          <MusicDropdown />
+        </View>
       </View>
     </AudioStoporPlay.Provider>
   );

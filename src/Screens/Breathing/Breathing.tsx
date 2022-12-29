@@ -6,7 +6,6 @@ import { Context } from "../../Statemanagement/Context";
 import { LinearGradient } from "expo-linear-gradient";
 const Breathing = () => {
   const { colors } = useContext(Context);
-  console.log(colors);
   return (
     <LinearGradient
       style={{ flex: 1 }}
