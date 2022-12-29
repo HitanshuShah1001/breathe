@@ -12,7 +12,8 @@ export const styles = StyleSheet.create({
   subcontainer: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "space-around",
+    paddingVertical: 20,
+    justifyContent: "space-evenly",
   },
   content: { flex: 1, justifyContent: "space-around", alignItems: "center" },
 });
