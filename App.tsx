@@ -11,9 +11,6 @@ export default function App() {
   let [fontsLoaded] = useFonts({
     Secular: require("./assets/fonts/SecularOne-Regular.ttf"),
   });
-
-  const [isLoaded, setisLoaded] = useState<Boolean>(false);
-
   const [Lightmode, setLightMode] = useState<Boolean>(true);
   const [duration, setDuration] = useState<number>(120);
   const [colors, setColors] = useState<Object>(Light);

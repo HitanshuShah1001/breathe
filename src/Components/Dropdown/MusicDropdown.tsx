@@ -5,19 +5,15 @@ import { styles } from "./styles";
 import { Music } from "../../Resources/Music";
 import { Context } from "../../Statemanagement/Context";
 import { useRoute } from "@react-navigation/native";
+import { AudioStoporPlay } from "../../Screens/Startbreathing/Body/Body";
 
 export default function MusicDropdown() {
   const route = useRoute();
   const { sound: music, setSound } = React.useContext(Context);
+  const { audio, setAudio } = React.useContext(AudioStoporPlay);
   const [show, setShow] = useState<Boolean>(false);
   const timerRef = useRef<NodeJS.Timeout | any>(null);
-  const [audio, setAudio] = useState<any>();
 
-  const stopAudioifnavigatedtoanotherroute = async () => {
-    if (route.name !== "Startbreathing") {
-      await audio?.unloadAsync();
-    }
-  };
   // useEffect(() => {
   //   stopAudioifnavigatedtoanotherroute();
   // }, [route]);
