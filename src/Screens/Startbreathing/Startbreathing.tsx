@@ -13,19 +13,15 @@ export default function Startbreathing() {
     console.log(sound, "Sound");
   }, []);
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <LinearGradient
-        style={{ flex: 1, justifyContent: "space-around" }}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
-        colors={colors.Background}
-      >
-        <View style={styles.parent}>
-          <GoBack />
-          <Body colors={colors} />
-          <View style={{ flex: 2 }}></View>
-        </View>
-      </LinearGradient>
-    </SafeAreaView>
+    <LinearGradient
+      style={{ flex: 1 }}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      colors={colors.Background}
+    >
+      <View style={styles.parent}>
+        <Body colors={colors} />
+      </View>
+    </LinearGradient>
   );
 }

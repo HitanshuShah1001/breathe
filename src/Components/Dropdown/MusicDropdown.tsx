@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { View, TouchableOpacity, Text, ScrollView } from "react-native";
 import { styles } from "./styles";
-import { Labels } from "../../Utils/Durationvalues";
+import { Music } from "../../Resources/Music";
 import { Context } from "../../Statemanagement/Context";
-export default function Dropdown() {
-  const { duration, setDuration } = React.useContext(Context);
+export default function MusicDropdown() {
+  const { sound, setSound } = React.useContext(Context);
   const [show, setShow] = useState(false);
   return (
     <View style={styles.container}>
@@ -13,22 +13,22 @@ export default function Dropdown() {
           style={styles.dropdown}
           onPress={() => setShow(!show)}
         >
-          <Text style={{ color: "white" }}>{duration / 60} mins</Text>
+          <Text style={{ color: "white" }}>{sound}</Text>
         </TouchableOpacity>
 
         {show && (
           <ScrollView>
-            {Labels.map((item, index) => {
+            {Music.map((item, index) => {
               return (
                 <TouchableOpacity
                   style={styles.duration}
                   onPress={() => {
-                    setDuration(item.value * 60);
+                    setSound(item.mood);
                     setShow(!show);
                   }}
                   key={index}
                 >
-                  <Text style={{ color: "white" }}>{item.label}</Text>
+                  <Text style={{ color: "white" }}>{item.mood}</Text>
                 </TouchableOpacity>
               );
             })}

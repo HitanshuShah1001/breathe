@@ -8,15 +8,11 @@ interface ScreenOptions {
 }
 export const Screens: Array<ScreenOptions> = [
   {
-    name: "Home",
-    component: Home,
+    name: "Startbreathing",
+    component: Startbreathing,
   },
   {
     name: "Breathing",
     component: Breathing,
-  },
-  {
-    name: "Startbreathing",
-    component: Startbreathing,
   },
 ];

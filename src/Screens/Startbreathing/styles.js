@@ -3,16 +3,17 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   parent: {
     flex: 1,
-    paddingVertical: 20,
+    paddingTop: 40,
   },
   container: {
     flex: 1,
     alignItems: "flex-end",
   },
   subcontainer: {
-    flex: 6,
+    flex: 1,
     alignItems: "center",
-    justifyContent: "center",
+    paddingVertical: 20,
+    justifyContent: "space-evenly",
   },
   content: { flex: 1, justifyContent: "space-around", alignItems: "center" },
 });

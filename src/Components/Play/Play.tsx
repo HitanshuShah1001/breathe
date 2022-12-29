@@ -11,7 +11,7 @@ interface Props {
 export default function Play({ onClick, props }: Props) {
   const { Lightmode } = useContext(Context);
   return (
-    <Pressable onPress={onClick} style={{ marginTop: 20 }}>
+    <Pressable onPress={onClick}>
       <Svg
         width={100}
         height={100}
