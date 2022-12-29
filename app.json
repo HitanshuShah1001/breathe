@@ -4,11 +4,11 @@
     "slug": "breathe",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/play.png",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
+      "image": "./assets/icon.png",
+      "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
     "updates": {
