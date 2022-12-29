@@ -1,17 +1,12 @@
-import React, { useContext, useEffect } from "react";
-import { SafeAreaView, View } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import React, { useContext } from "react";
+import { View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { styles } from "./styles";
 import { Context } from "../../Statemanagement/Context";
-import GoBack from "./Close/Close";
 import Body from "./Body/Body";
 
 export default function Startbreathing() {
-  const { colors, sound } = useContext(Context);
-  useEffect(() => {
-    console.log(sound, "Sound");
-  }, []);
+  const { colors } = useContext(Context);
   return (
     <LinearGradient
       style={{ flex: 1 }}
