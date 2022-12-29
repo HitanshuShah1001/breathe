@@ -17,5 +17,10 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: "white",
   },
-  duration: { alignItems: "center", marginVertical: 10 },
+  duration: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginVertical: 10,
+    flexDirection: "row",
+  },
 });

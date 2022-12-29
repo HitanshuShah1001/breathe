@@ -21,3 +21,4 @@ export const Sources: Array<ImageSourcePropType> = [
   Stressed,
   Tired,
 ];
+export const Tick: ImageSourcePropType = require("../../assets/tick.png");

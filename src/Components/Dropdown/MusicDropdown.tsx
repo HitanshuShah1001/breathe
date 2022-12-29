@@ -7,6 +7,7 @@ import { Context } from "../../Statemanagement/Context";
 import { useRoute } from "@react-navigation/native";
 import { AudioStoporPlay } from "../../Screens/Startbreathing/Body/Body";
 import ButtonLabels from "../Buttonlabels/Buttonlabels";
+import Selected from "../Tick/tick";
 
 export default function MusicDropdown() {
   const { sound: music, setSound, colors } = React.useContext(Context);
@@ -52,6 +53,7 @@ export default function MusicDropdown() {
                   key={index}
                 >
                   <ButtonLabels text={item.mood} />
+                  {item.mood === music && <Selected />}
                 </TouchableOpacity>
               );
             })}
