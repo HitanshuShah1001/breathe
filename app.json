@@ -4,10 +4,10 @@
     "slug": "breathe",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/Breathe.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/icon.png",
+      "image": "./assets/Breathe.png",
       "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
