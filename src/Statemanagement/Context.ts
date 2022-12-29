@@ -6,6 +6,7 @@ export interface Colortypes {
   Breathe: string;
   Breathetext: String;
   Buttoncolor: String;
+  Playcolor: string;
 }
 interface Context {
   duration: number;

@@ -3,8 +3,9 @@ import { View, TouchableOpacity, Text, ScrollView } from "react-native";
 import { styles } from "./styles";
 import { Labels } from "../../Utils/Durationvalues";
 import { Context } from "../../Statemanagement/Context";
+import ButtonLabels from "../Buttonlabels/Buttonlabels";
 export default function Dropdown() {
-  const { duration, setDuration } = React.useContext(Context);
+  const { duration, setDuration, colors } = React.useContext(Context);
   const [show, setShow] = useState(false);
   return (
     <View style={styles.container}>
@@ -13,7 +14,7 @@ export default function Dropdown() {
           style={styles.dropdown}
           onPress={() => setShow(!show)}
         >
-          <Text style={{ color: "white" }}>{duration / 60} mins</Text>
+          <ButtonLabels text={`${duration / 60} mins`} />
         </TouchableOpacity>
 
         {show && (
@@ -28,7 +29,7 @@ export default function Dropdown() {
                   }}
                   key={index}
                 >
-                  <Text style={{ color: "white" }}>{item.label}</Text>
+                  <ButtonLabels text={item.label} />
                 </TouchableOpacity>
               );
             })}

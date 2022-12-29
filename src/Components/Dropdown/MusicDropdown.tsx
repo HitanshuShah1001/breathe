@@ -6,17 +6,13 @@ import { Music } from "../../Resources/Music";
 import { Context } from "../../Statemanagement/Context";
 import { useRoute } from "@react-navigation/native";
 import { AudioStoporPlay } from "../../Screens/Startbreathing/Body/Body";
+import ButtonLabels from "../Buttonlabels/Buttonlabels";
 
 export default function MusicDropdown() {
-  const route = useRoute();
-  const { sound: music, setSound } = React.useContext(Context);
+  const { sound: music, setSound, colors } = React.useContext(Context);
   const { audio, setAudio } = React.useContext(AudioStoporPlay);
   const [show, setShow] = useState<Boolean>(false);
   const timerRef = useRef<NodeJS.Timeout | any>(null);
-
-  // useEffect(() => {
-  //   stopAudioifnavigatedtoanotherroute();
-  // }, [route]);
 
   const demoSound = async (mood: string) => {
     setShow(!show);
@@ -43,7 +39,7 @@ export default function MusicDropdown() {
           style={styles.dropdown}
           onPress={() => setShow(!show)}
         >
-          <Text style={{ color: "white" }}>{music}</Text>
+          <ButtonLabels text={music} />
         </TouchableOpacity>
 
         {show && (
@@ -55,7 +51,7 @@ export default function MusicDropdown() {
                   onPress={() => demoSound(item.mood)}
                   key={index}
                 >
-                  <Text style={{ color: "white" }}>{item.mood}</Text>
+                  <ButtonLabels text={item.mood} />
                 </TouchableOpacity>
               );
             })}
