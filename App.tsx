@@ -6,8 +6,10 @@ import Navigation from "./Navigation";
 import { Light } from "./src/Utils/Constants/Colors";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { askNotificationPermission } from "./src/Utils/ScheduleNotification";
+import { LogBox } from "react-native";
 
 export default function App() {
+  LogBox.ignoreAllLogs();
   let [fontsLoaded] = useFonts({
     Secular: require("./assets/fonts/SecularOne-Regular.ttf"),
   });
