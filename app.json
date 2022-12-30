@@ -7,7 +7,7 @@
     "icon": "./assets/Breathe.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/Breathe.png",
+      "image": "./assets/MindfulBreaths.png",
       "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
