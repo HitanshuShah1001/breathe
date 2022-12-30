@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import { View, TouchableOpacity, Text, ScrollView } from "react-native";
+import { View, TouchableOpacity, ScrollView } from "react-native";
 import { styles } from "./styles";
 import { Labels } from "../../Utils/Durationvalues";
 import { Context } from "../../Statemanagement/Context";
 import ButtonLabels from "../Buttonlabels/Buttonlabels";
-import { Tick } from "../../Resources/Images";
-import Icon from "../Icon/Icon";
 import Selected from "../Tick/tick";
 export default function Dropdown() {
   const { duration, setDuration, colors } = React.useContext(Context);
