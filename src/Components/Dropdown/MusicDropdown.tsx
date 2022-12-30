@@ -7,6 +7,7 @@ import { Context } from "../../Statemanagement/Context";
 import { AudioStoporPlay } from "../../Screens/Startbreathing/Body/Body";
 import ButtonLabels from "../Buttonlabels/Buttonlabels";
 import Selected from "../Tick/tick";
+import Buttons from "./Button";
 
 export default function MusicDropdown() {
   const { sound: music, setSound } = React.useContext(Context);
@@ -24,7 +25,7 @@ export default function MusicDropdown() {
     const { sound } = await Audio.Sound.createAsync(
       Music[Music.findIndex((x) => x.mood == music)].audio,
       {
-        isLooping: true,
+        isLooping: false,
       }
     );
 
@@ -33,6 +34,10 @@ export default function MusicDropdown() {
     // timerRef.current = setTimeout(() => {
     //   sound.stopAsync();
     // }, 10000);
+  };
+
+  const Nomusicthanks = () => {
+    setSound("No Music");
   };
 
   return (
@@ -61,6 +66,14 @@ export default function MusicDropdown() {
                 </TouchableOpacity>
               );
             })}
+            <TouchableOpacity
+              style={styles.duration}
+              onPress={() => Nomusicthanks()}
+            >
+              <ButtonLabels text="No Music" />
+              {"No Music" === music && <Selected />}
+            </TouchableOpacity>
+
             <Button title="Select" onPress={() => selectSound()} />
           </ScrollView>
         )}

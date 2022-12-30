@@ -30,7 +30,10 @@ export default function Timer({ color, buttoncolor }: Props) {
   const durationRef = useRef<NodeJS.Timeout | any>(null);
 
   useEffect(() => {
-    playSound();
+    if (music !== "No Music") {
+      playSound();
+    }
+
     return sound
       ? () => {
           sound.unloadAsync();
@@ -69,7 +72,7 @@ export default function Timer({ color, buttoncolor }: Props) {
   };
 
   const Stop = async () => {
-    await sound.unloadAsync();
+    await sound?.unloadAsync();
     clearInterval(durationRef.current);
     setPaused(false);
     setPause(false);
@@ -77,7 +80,7 @@ export default function Timer({ color, buttoncolor }: Props) {
   };
 
   const Pause = async () => {
-    await sound.pauseAsync();
+    await sound?.pauseAsync();
     setPaused(true);
     setPause(true);
   };
