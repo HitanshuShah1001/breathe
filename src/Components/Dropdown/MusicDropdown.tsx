@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
-import { View, TouchableOpacity, Text, ScrollView, Button } from "react-native";
+import React, { useRef, useState } from "react";
+import { View, TouchableOpacity, ScrollView, Button } from "react-native";
 import { Audio } from "expo-av";
 import { styles } from "./styles";
 import { Music } from "../../Resources/Music";
 import { Context } from "../../Statemanagement/Context";
-import { useRoute } from "@react-navigation/native";
 import { AudioStoporPlay } from "../../Screens/Startbreathing/Body/Body";
 import ButtonLabels from "../Buttonlabels/Buttonlabels";
 import Selected from "../Tick/tick";
