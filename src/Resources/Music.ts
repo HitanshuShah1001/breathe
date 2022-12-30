@@ -7,27 +7,19 @@ interface Music {
 
 export const Music: Array<Music> = [
   {
-    mood: "Angry",
-    audio: require("../../Sounds/Insomnia.mp3"),
+    mood: "Relaxing",
+    audio: require("../../Sounds/Soft.mp3"),
   },
   {
-    mood: "Sleepless",
-    audio: require("../../Sounds/Insomnia.mp3"),
+    mood: "Soft",
+    audio: require("../../Sounds/Relax.mp3"),
   },
   {
-    mood: "Cluttered",
-    audio: require("../../Sounds/Declutter.mp3"),
+    mood: "Light Rain",
+    audio: require("../../Sounds/Rain.mp3"),
   },
   {
-    mood: "Stressed",
-    audio: require("../../Sounds/Stress.mp3"),
-  },
-  {
-    mood: "Tired",
+    mood: "Deep",
     audio: require("../../Sounds/Tired.mp3"),
-  },
-  {
-    mood: "Excited",
-    audio: require("../../Sounds/Insomnia.mp3"),
   },
 ];

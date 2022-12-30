@@ -15,7 +15,7 @@ export default function App() {
   const [duration, setDuration] = useState<number>(120);
   const [colors, setColors] = useState<Object>(Light);
   const [sessions, setSessions] = useState<number>(0);
-  const [sound, setSound] = useState<String>("Angry");
+  const [sound, setSound] = useState<String>("Soft");
   const [paused, setPaused] = useState<Boolean>(false);
 
   useEffect(() => {
