@@ -6,6 +6,7 @@ import { Light, Dark } from "../../Utils/Constants/Colors";
 import { LinearGradient } from "expo-linear-gradient";
 import ContactUs from "../../Components/Contactus/Contactus";
 import TotalSessions from "../../Components/TotalSessions/TotalSessions";
+
 export default function Settings() {
   const [enabled, setEnabled] = useState(false);
   const { Lightmode, setLightMode, colors, setColors } = useContext(Context);
