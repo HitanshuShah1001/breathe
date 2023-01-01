@@ -18,9 +18,6 @@
         "appleId":"hitanshu.shah@creolestudios.com",
         "ascAppId":"1662076898",
         "appleTeamId":"X6952354CG"
-      },
-      "android":{
-        "serviceAccountKeyPath":"./pc-api-5430564927200223407-56-65d5dd74ef5a.json"
       }
     }
   }
