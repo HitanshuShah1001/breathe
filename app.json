@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "breathe",
-    "slug": "breathe",
-    "version": "1.0.0",
+    "name": "Mindful breaths",
+    "slug": "Mindfulbreaths",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/Breathe.png",
     "userInterfaceStyle": "light",
@@ -18,16 +18,24 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.hitz2001.Mindfulbreaths"
     },
     "android": {
+      "package":"com.hitz2001.Mindfulbreaths",
+      "versionCode":1,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/MindfulBreaths.png",
         "backgroundColor": "#FFFFFF"
       }
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "cad23ae5-902a-404a-9bdc-0aca76032080"
+      }
     }
   }
 }

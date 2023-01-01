@@ -36,7 +36,8 @@ export default function MusicDropdown() {
     // }, 10000);
   };
 
-  const Nomusicthanks = () => {
+  const Nomusicthanks = async () => {
+    await audio?.stopAsync();
     setSound("No Music");
   };
 

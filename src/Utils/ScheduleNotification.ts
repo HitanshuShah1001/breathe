@@ -14,9 +14,8 @@ export const askNotificationPermission = async () => {
   if (permission.status === "granted") {
     Notifications.scheduleNotificationAsync({
       content: {
-        title: "App Name",
-        body: quotes[Math.floor(Math.random() * quotes.length)] as any,
-        priority: "High",
+        title: "Mindful Breaths",
+        body: "Breathe. Let go. And remind yourself that this very moment is the only one you know you have for sure.",
       },
       trigger: {
         hour: 10,
