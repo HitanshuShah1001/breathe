@@ -19,9 +19,11 @@ export default function App() {
   const [sessions, setSessions] = useState<number>(0);
   const [sound, setSound] = useState<String>("Soft");
   const [paused, setPaused] = useState<Boolean>(false);
+  const [incompletesessions, setIncompletesessions] = useState<number>(0);
 
   useEffect(() => {
     checkBreatheSessions();
+    CheckIncompleteBreatheSessions();
   }, []);
 
   useEffect(() => {
@@ -41,6 +43,8 @@ export default function App() {
     setSound,
     paused,
     setPaused,
+    incompletesessions,
+    setIncompletesessions,
   };
 
   const checkBreatheSessions = async () => {
@@ -50,6 +54,19 @@ export default function App() {
     } else {
       const Sessionsstring = JSON.stringify(0);
       await AsyncStorage.setItem("Sessions", Sessionsstring);
+    }
+  };
+
+  const CheckIncompleteBreatheSessions = async () => {
+    const Incompletesessions = await AsyncStorage.getItem("Incompletesessions");
+    if (Incompletesessions !== null) {
+      setIncompletesessions(+Incompletesessions);
+    } else {
+      const Incompletesessionsstring = JSON.stringify(0);
+      await AsyncStorage.setItem(
+        "Incompletesessions",
+        Incompletesessionsstring
+      );
     }
   };
 

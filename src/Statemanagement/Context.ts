@@ -15,11 +15,13 @@ interface Context {
   sessions: number;
   sound: String;
   paused: Boolean;
+  incompletesessions: number;
   setDuration: Dispatch<SetStateAction<number>>;
   setLightMode: Dispatch<SetStateAction<Boolean>>;
   setColors: Dispatch<SetStateAction<Object>>;
   setSessions: Dispatch<SetStateAction<number>>;
   setSound: Dispatch<SetStateAction<String>>;
   setPaused: Dispatch<SetStateAction<Boolean>>;
+  setIncompletesessions: Dispatch<SetStateAction<number>>;
 }
 export const Context = React.createContext<Context>();
