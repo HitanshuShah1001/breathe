@@ -9,7 +9,14 @@ import TotalSessions from "../../Components/TotalSessions/TotalSessions";
 
 export default function Settings() {
   const [enabled, setEnabled] = useState(false);
-  const { Lightmode, setLightMode, colors, setColors } = useContext(Context);
+  const {
+    Lightmode,
+    setLightMode,
+    colors,
+    setColors,
+    sessions,
+    incompletesessions,
+  } = useContext(Context);
 
   const toggleMode = () => {
     setLightMode(!Lightmode);
@@ -35,7 +42,11 @@ export default function Settings() {
             value={enabled}
           />
         </View>
-        <TotalSessions />
+        <TotalSessions text={"Sessions Completed"} value={sessions} />
+        <TotalSessions
+          text={"Incomplete Sessions"}
+          value={incompletesessions}
+        />
         <ContactUs />
       </View>
       <View style={{ flex: 1 }}></View>
