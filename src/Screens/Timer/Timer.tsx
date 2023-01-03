@@ -20,7 +20,10 @@ export default function Timer({ color, buttoncolor }: Props) {
     setSessions,
     sound: music,
     setPaused,
+    setIncompletesessions,
+    incompletesessions,
   } = useContext(Context);
+
   const navigation = useNavigation();
   const [time, setTime] = useState<number>(duration);
   const [minutes, setMinutes] = useState<number>(Math.floor(time / 60));
@@ -72,6 +75,11 @@ export default function Timer({ color, buttoncolor }: Props) {
   };
 
   const Stop = async () => {
+    await AsyncStorage.setItem(
+      "Incompletesessions",
+      JSON.stringify(incompletesessions + 1)
+    );
+    setIncompletesessions(incompletesessions + 1);
     await sound?.unloadAsync();
     clearInterval(durationRef.current);
     setPaused(false);
