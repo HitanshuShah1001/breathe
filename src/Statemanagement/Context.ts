@@ -16,6 +16,7 @@ interface Context {
   sound: String;
   paused: Boolean;
   incompletesessions: number;
+  sessiondata: Object;
   setDuration: Dispatch<SetStateAction<number>>;
   setLightMode: Dispatch<SetStateAction<Boolean>>;
   setColors: Dispatch<SetStateAction<Object>>;
@@ -23,5 +24,6 @@ interface Context {
   setSound: Dispatch<SetStateAction<String>>;
   setPaused: Dispatch<SetStateAction<Boolean>>;
   setIncompletesessions: Dispatch<SetStateAction<number>>;
+  setSessiondata: Dispatch<SetStateAction<Object>>;
 }
 export const Context = React.createContext<Context>();

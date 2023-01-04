@@ -7,6 +7,7 @@ import { Light } from "./src/Utils/Constants/Colors";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { askNotificationPermission } from "./src/Utils/ScheduleNotification";
 import { LogBox } from "react-native";
+import { Sessiondata } from "./src/Utils/Sessiondata";
 
 export default function App() {
   LogBox.ignoreAllLogs();
@@ -20,10 +21,12 @@ export default function App() {
   const [sound, setSound] = useState<String>("Soft");
   const [paused, setPaused] = useState<Boolean>(false);
   const [incompletesessions, setIncompletesessions] = useState<number>(0);
+  const [sessiondata, setSessiondata] = useState<Object>(Sessiondata);
 
   useEffect(() => {
     checkBreatheSessions();
     CheckIncompleteBreatheSessions();
+    Getminutewisebreathingdata();
   }, []);
 
   useEffect(() => {
@@ -45,6 +48,8 @@ export default function App() {
     setPaused,
     incompletesessions,
     setIncompletesessions,
+    sessiondata,
+    setSessiondata,
   };
 
   const checkBreatheSessions = async () => {
@@ -67,6 +72,16 @@ export default function App() {
         "Incompletesessions",
         Incompletesessionsstring
       );
+    }
+  };
+
+  const Getminutewisebreathingdata = async () => {
+    const data = await AsyncStorage.getItem("@minutewisebreathingsession");
+    if (data !== null) {
+      setSessiondata(JSON.parse(data));
+    } else {
+      const data = JSON.stringify(sessiondata);
+      await AsyncStorage.setItem("@minutewisebreathingsession", data);
     }
   };
 

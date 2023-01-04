@@ -22,17 +22,23 @@ export default function Timer({ color, buttoncolor }: Props) {
     setPaused,
     setIncompletesessions,
     incompletesessions,
+    sessiondata,
+    setSessiondata,
   } = useContext(Context);
 
   const navigation = useNavigation();
   const [time, setTime] = useState<number>(duration);
   const [minutes, setMinutes] = useState<number>(Math.floor(time / 60));
+  const [durationinminutes, setDurationinminutes] = useState<string>(
+    Math.floor(duration / 60).toString()
+  );
   const [seconds, setSeconds] = useState<number>(Math.floor(time % 60));
   const [pause, setPause] = useState<boolean>(false);
   const [sound, setSound] = useState<any>();
   const durationRef = useRef<NodeJS.Timeout | any>(null);
 
   useEffect(() => {
+    console.log(durationinminutes);
     if (music !== "No Music") {
       playSound();
     }
@@ -103,6 +109,11 @@ export default function Timer({ color, buttoncolor }: Props) {
 
   const Timerfinished = async () => {
     await sound.unloadAsync();
+    setSessiondata({
+      ...sessiondata,
+    });
+    console.log(sessiondata);
+
     AsyncStorage.setItem("Sessions", JSON.stringify(sessions + 1));
     setSessions(sessions + 1);
     navigation.goBack();
