@@ -77,6 +77,7 @@ export default function App() {
 
   const Getminutewisebreathingdata = async () => {
     const data = await AsyncStorage.getItem("@minutewisebreathingsession");
+
     if (data !== null) {
       setSessiondata(JSON.parse(data));
     } else {

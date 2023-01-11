@@ -38,7 +38,6 @@ export default function Timer({ color, buttoncolor }: Props) {
   const durationRef = useRef<NodeJS.Timeout | any>(null);
 
   useEffect(() => {
-    console.log(durationinminutes);
     if (music !== "No Music") {
       playSound();
     }
@@ -109,11 +108,32 @@ export default function Timer({ color, buttoncolor }: Props) {
 
   const Timerfinished = async () => {
     await sound.unloadAsync();
+    var obj = {};
+    Object.keys(sessiondata).forEach((session) => {
+      if (session === durationinminutes) {
+        obj = { [durationinminutes]: sessiondata[session] + 1 };
+      }
+    });
+    console.log(obj, "OBJ ");
+    AsyncStorage.setItem(
+      "@minutewisebreathingsession",
+      JSON.stringify({
+        ...sessiondata,
+        ...obj,
+      })
+    );
+    console.log(
+      {
+        ...sessiondata,
+        ...obj,
+      },
+      "Jre"
+    );
+
     setSessiondata({
       ...sessiondata,
+      ...obj,
     });
-    console.log(sessiondata);
-
     AsyncStorage.setItem("Sessions", JSON.stringify(sessions + 1));
     setSessions(sessions + 1);
     navigation.goBack();
